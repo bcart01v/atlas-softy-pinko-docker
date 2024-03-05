@@ -1,0 +1,33 @@
+# Docker Compose - Handles the application start up.
+
+# Services
+# Back-end
+# Front-end
+# Proxy
+
+version: '3'
+services:
+    back-end:
+      build:
+        context: ./back-end
+        dockerfile: Dockerfile
+      image: softy-pinko-back-end:task5
+      depends_on:
+        - front-end
+
+    front-end:
+      build:
+        context: ./front-end
+        dockerfile: Dockerfile
+      image: softy-pinko-front-end:task5
+
+    proxy:
+      build:
+        context: ./proxy
+        dockerfile: Dockerfile
+      image: softy-pink-back-end:task5
+      ports:
+        - "80:80"
+      depends_on:
+      - back-end
+      - front-end
