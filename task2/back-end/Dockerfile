@@ -1,6 +1,6 @@
 # Back-End
 # Set the platform, use the same Python version as my local
-FROM --platform=$BUILDPLATFORM python:3.8-slim-buster AS codebase
+FROM ubuntu:latest
 
 # Update and install dependencies 
 RUN apt-get update && apt-get -y install python3-pip
